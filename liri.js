@@ -7,18 +7,19 @@ var userChoice = process.argv.slice(2);
   var twit = require('./liri_modules/twitter/twit.js');
 
   // Spotify REQ
+  var spot = require('./liri_modules/spotify/spot.js');
 
   // OMDB REQ
 
 // END API VARIABLES
-debugger;
+
 // USER CHOICE CALLS
 switch(userChoice[0]){
   case 'my-tweets':
     twit.twitterLogic();
     break;
   case 'spotify-this-song':
-    // TODO spotify function call
+    spot.spotifyLogic();
     break;
   case 'movie-this':
     // TODO movie function call
