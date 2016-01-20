@@ -10,6 +10,7 @@ var userChoice = process.argv.slice(2);
   var spot = require('./liri_modules/spotify/spot.js');
 
   // OMDB REQ
+  var omdb = require('./liri_modules/omdb/omdb.js');
 
 // END API VARIABLES
 
@@ -23,6 +24,7 @@ switch(userChoice[0]){
     break;
   case 'movie-this':
     // TODO movie function call
+    omdb.omdbLogic();
     break;
   default:
     console.log('Follow the directions.');
