@@ -12,6 +12,9 @@ var userChoice = process.argv.slice(2);
   // OMDB REQ
   var omdb = require('./liri_modules/omdb/omdb.js');
 
+  // Obey! REQ
+    // TODO Add do what it says functionality
+
 // END API VARIABLES
 
 // USER CHOICE CALLS
