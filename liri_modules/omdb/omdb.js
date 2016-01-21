@@ -30,7 +30,7 @@ exports.omdbLogic = function(userMovie){
   if(userMovie){
     movieChoose(userMovie);
   }else{
-    movieChoose('star wars');
+    movieChoose('mr nobody');
   }
 
 
