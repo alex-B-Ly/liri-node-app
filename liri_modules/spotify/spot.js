@@ -1,5 +1,8 @@
 var spot = require('spotify');
 
+// Log REQ
+var logger = require('../logger/logger.js');
+
 exports.spotifyLogic = function(songName){
 
   if(songName){
@@ -17,7 +20,8 @@ exports.spotifyLogic = function(songName){
           +'Album: ' + song.album.name + '\r\n'
           +'Preview link: ' + song.preview_url + '\r\n';
 
-          console.log(songInfo);          
+          console.log(songInfo);
+          logger.logger(songInfo);       
         });
       }
     });
@@ -37,6 +41,7 @@ exports.spotifyLogic = function(songName){
         +'Preview link: ' + songData[0].preview_url + '\r\n'
 
         console.log(songInfo);
+        logger.logger(songInfo);
       }
 
     });

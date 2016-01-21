@@ -1,6 +1,5 @@
 var request = require('request');
 // Log REQ
-var fs = require('fs');
 var logger = require('../logger/logger.js');
 
 exports.omdbLogic = function(userMovie){

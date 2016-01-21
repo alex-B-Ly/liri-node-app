@@ -1,6 +1,9 @@
 var Twitter = require('twitter');
 var keys = require('./twitKeys.js');
 
+// Log REQ
+var logger = require('../logger/logger.js');
+
 var client = new Twitter({
   consumer_key: keys.twitterKeys.consumer_key,
   consumer_secret: keys.twitterKeys.consumer_secret,
@@ -23,7 +26,8 @@ exports.twitterLogic = function(){
         +tweets[i].user.screen_name + ' said:' + '\r\n'
         +tweets[i].text + '\r\n';
 
-        console.log(tweetInfo);        
+        console.log(tweetInfo);
+        logger.logger(tweetInfo);        
         tweetNum++;
 
         if(tweetNum === 20){
