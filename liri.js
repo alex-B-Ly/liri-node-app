@@ -37,4 +37,6 @@ function commandMe(command, commandArg){
   }
 }
 
+exports.outerCommand = commandMe;
+
 commandMe(userChoice[0], userChoice[1]);

@@ -1,3 +1,4 @@
+var lir = require('../../liri.js');
 var fs = require('fs');
 
 exports.readFromRandom = function(){
@@ -5,7 +6,8 @@ exports.readFromRandom = function(){
     if(err){
       console.log(err);
     }else{
-      console.log(data);
+      var newArgs = data.split(',');
+      lir.outerCommand(newArgs[0], newArgs[1]);
     }
   });
 }
