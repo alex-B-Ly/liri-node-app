@@ -1,11 +1,10 @@
 var spot = require('spotify');
 
-exports.spotifyLogic = function(){
-  var argv = process.argv.slice(3);
+exports.spotifyLogic = function(songName){
 
-  if(argv[0]){
+  if(songName){
     // Looks for song name passed by user and returns song info
-    spot.search({ type: 'track', query: argv[0]}, function(err, data){
+    spot.search({ type: 'track', query: songName}, function(err, data){
       var songData = data.tracks.items;
 
       if(err){

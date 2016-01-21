@@ -1,9 +1,6 @@
 // USER CHOICES VARIABLE
 var userChoice = process.argv.slice(2);
 
-// FILE SYSTEM
-// var fs = require('fs');
-
 // API VARIABLES
 
   // Twitter REQ
@@ -21,19 +18,23 @@ var userChoice = process.argv.slice(2);
 // END API VARIABLES
 
 // USER CHOICE CALLS
-switch(userChoice[0]){
-  case 'my-tweets':
-    twit.twitterLogic();
-    break;
-  case 'spotify-this-song':
-    spot.spotifyLogic();
-    break;
-  case 'movie-this':
-    omdb.omdbLogic();
-    break;
-  case 'obey':
-    obey.readFromRandom();
-    break;
-  default:
-    console.log('Follow the directions.');
+function commandMe(command, commandArg){
+  switch(command){
+    case 'my-tweets':
+      twit.twitterLogic();
+      break;
+    case 'spotify-this-song':
+      spot.spotifyLogic(commandArg);
+      break;
+    case 'movie-this':
+      omdb.omdbLogic(commandArg);
+      break;
+    case 'obey':
+      obey.readFromRandom();
+      break;
+    default:
+      console.log('Follow the directions.');
+  }
 }
+
+commandMe(userChoice[0], userChoice[1]);
