@@ -1,5 +1,8 @@
 var spot = require('spotify');
 
+// Log REQ
+var logger = require('../logger/logger.js');
+
 exports.spotifyLogic = function(songName){
 
   if(songName){
@@ -12,11 +15,13 @@ exports.spotifyLogic = function(songName){
       }else{
         // TODO Make the console log strings into one variable
         songData.forEach(function(song){
-          console.log('Artist: ' + song.artists[0].name);
-          console.log('Song: ' + song.name);
-          console.log('Album: ' + song.album.name);
-          console.log('Preview link: ' + song.preview_url);
-          console.log('\r\n');
+          var songInfo = 'Artist: ' + song.artists[0].name + '\r\n'
+          +'Song: ' + song.name + '\r\n'
+          +'Album: ' + song.album.name + '\r\n'
+          +'Preview link: ' + song.preview_url + '\r\n';
+
+          console.log(songInfo);
+          logger.logger(songInfo);       
         });
       }
     });
@@ -25,15 +30,18 @@ exports.spotifyLogic = function(songName){
     // Default blink 182 song goes here if no arguments are passed by user
     spot.search({ type: 'track', query: "what's my age again?"}, function(err, data){
       var songData = data.tracks.items;
+      var songInfo;
 
       if(err){
         console.log('error type: '+err);
       }else{
-        console.log('Artist: ' + songData[0].artists[0].name);
-        console.log('Song: ' + songData[0].name);
-        console.log('Album: ' + songData[0].album.name);
-        console.log('Preview link: ' + songData[0].preview_url);
-        console.log('\r\n'); 
+        songInfo += 'Artist: ' + songData[0].artists[0].name + '\r\n'
+        +'Song: ' + songData[0].name + '\r\n'
+        +'Album: ' + songData[0].album.name + '\r\n'
+        +'Preview link: ' + songData[0].preview_url + '\r\n'
+
+        console.log(songInfo);
+        logger.logger(songInfo);
       }
 
     });

@@ -1,6 +1,9 @@
 var Twitter = require('twitter');
 var keys = require('./twitKeys.js');
 
+// Log REQ
+var logger = require('../logger/logger.js');
+
 var client = new Twitter({
   consumer_key: keys.twitterKeys.consumer_key,
   consumer_secret: keys.twitterKeys.consumer_secret,
@@ -17,11 +20,14 @@ exports.twitterLogic = function(){
       console.log(error);
     }else{
       for(var i=0; i<tweets.length; i++){
-        console.log('\r\n');
-        console.log('Tweet id: ' + tweets[i].id);
-        console.log('Time: ' + tweets[i].created_at);
-        console.log(tweets[i].user.screen_name + ' said:');
-        console.log(tweets[i].text);
+        var tweetInfo = '\r\n'
+        +'Tweet id: ' + tweets[i].id + '\r\n'
+        +'Time: ' + tweets[i].created_at + '\r\n'
+        +tweets[i].user.screen_name + ' said:' + '\r\n'
+        +tweets[i].text + '\r\n';
+
+        console.log(tweetInfo);
+        logger.logger(tweetInfo);        
         tweetNum++;
 
         if(tweetNum === 20){

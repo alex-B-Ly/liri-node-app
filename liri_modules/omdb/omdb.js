@@ -1,6 +1,6 @@
 var request = require('request');
-var argv = process.argv.slice(3);
-
+// Log REQ
+var logger = require('../logger/logger.js');
 
 exports.omdbLogic = function(userMovie){
 
@@ -23,6 +23,7 @@ exports.omdbLogic = function(userMovie){
         console.log('error type: '+error);
       }else{
         console.log(movieInfo);
+        logger.logger(movieInfo);
       }
     });
   }
