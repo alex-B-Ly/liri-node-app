@@ -2,8 +2,7 @@ var request = require('request');
 var argv = process.argv.slice(3);
 
 
-exports.omdbLogic = function(){
-  var userMovie = argv[0];
+exports.omdbLogic = function(userMovie){
 
   function movieChoose(movie){
     request('http://www.omdbapi.com/?t='+movie+'&tomatoes=true', function(error, response, body){
