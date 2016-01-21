@@ -13,22 +13,30 @@ var userChoice = process.argv.slice(2);
   var omdb = require('./liri_modules/omdb/omdb.js');
 
   // Obey! REQ
-    // TODO Add do what it says functionality
+  var obey = require('./liri_modules/do-what-it-says/obey.js');
 
 // END API VARIABLES
 
 // USER CHOICE CALLS
-switch(userChoice[0]){
-  case 'my-tweets':
-    twit.twitterLogic();
-    break;
-  case 'spotify-this-song':
-    spot.spotifyLogic();
-    break;
-  case 'movie-this':
-    // TODO movie function call
-    omdb.omdbLogic();
-    break;
-  default:
-    console.log('Follow the directions.');
+function commandMe(command, commandArg){
+  switch(command){
+    case 'my-tweets':
+      twit.twitterLogic();
+      break;
+    case 'spotify-this-song':
+      spot.spotifyLogic(commandArg);
+      break;
+    case 'movie-this':
+      omdb.omdbLogic(commandArg);
+      break;
+    case 'obey':
+      obey.readFromRandom();
+      break;
+    default:
+      console.log('Follow the directions.');
+  }
 }
+
+exports.outerCommand = commandMe;
+
+commandMe(userChoice[0], userChoice[1]);
