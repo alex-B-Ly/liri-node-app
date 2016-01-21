@@ -1,6 +1,9 @@
 // USER CHOICES VARIABLE
 var userChoice = process.argv.slice(2);
 
+// FILE SYSTEM
+// var fs = require('fs');
+
 // API VARIABLES
 
   // Twitter REQ
@@ -13,7 +16,7 @@ var userChoice = process.argv.slice(2);
   var omdb = require('./liri_modules/omdb/omdb.js');
 
   // Obey! REQ
-    // TODO Add do what it says functionality
+  var obey = require('./liri_modules/do-what-it-says/obey.js');
 
 // END API VARIABLES
 
@@ -26,8 +29,10 @@ switch(userChoice[0]){
     spot.spotifyLogic();
     break;
   case 'movie-this':
-    // TODO movie function call
     omdb.omdbLogic();
+    break;
+  case 'obey':
+    obey.readFromRandom();
     break;
   default:
     console.log('Follow the directions.');
