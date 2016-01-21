@@ -1,4 +1,7 @@
 var request = require('request');
+// Log REQ
+var fs = require('fs');
+var logger = require('../logger/logger.js');
 
 exports.omdbLogic = function(userMovie){
 
@@ -21,6 +24,7 @@ exports.omdbLogic = function(userMovie){
         console.log('error type: '+error);
       }else{
         console.log(movieInfo);
+        logger.logger(movieInfo);
       }
     });
   }

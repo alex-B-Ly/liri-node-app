@@ -1,6 +1,11 @@
 // USER CHOICES VARIABLE
 var userChoice = process.argv.slice(2);
 
+// FILE SYSTEM
+var fs = require('fs');
+// LOG REQ
+var logger = require('./liri_modules/logger/logger.js');
+
 // API VARIABLES
 
   // Twitter REQ
@@ -40,4 +45,5 @@ function commandMe(command, commandArg){
 
 exports.outerCommand = commandMe;
 
+logger.logger(userChoice);
 commandMe(userChoice[0], userChoice[1]);
