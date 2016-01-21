@@ -29,6 +29,7 @@ function commandMe(command, commandArg){
     case 'movie-this':
       omdb.omdbLogic(commandArg);
       break;
+    case 'do-what-it-says':
     case 'obey':
       obey.readFromRandom();
       break;

@@ -1,6 +1,4 @@
 var request = require('request');
-var argv = process.argv.slice(3);
-
 
 exports.omdbLogic = function(userMovie){
 
